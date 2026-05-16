@@ -81,14 +81,14 @@ function Navbar() {
     return (
       <nav className="bg-white/80 backdrop-blur-md shadow-[0_2px_10px_rgb(0,0,0,0.02)] border-b border-slate-100 sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-14">
             <Link to="/" className="flex items-center gap-2 group hover:opacity-80 transition-opacity">
-              <div className="bg-teal-600 text-white p-1.5 rounded-lg shadow-sm">
-                <Settings size={18} className="group-hover:rotate-180 transition-transform duration-500" />
+              <div className="bg-teal-600 text-white p-1 rounded-md shadow-sm">
+                <Settings size={16} className="group-hover:rotate-180 transition-transform duration-500" />
               </div>
               <span className="font-extrabold text-lg text-slate-900 tracking-tight">Utilo</span>
             </Link>
-            <Link to="/" className="text-sm font-semibold text-slate-500 hover:text-teal-600 transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-teal-50">
+            <Link to="/" className="hidden sm:flex text-sm font-semibold text-slate-500 hover:text-teal-600 transition-colors items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-teal-50">
                <ChevronLeft size={16} />
                Back to Home
             </Link>
@@ -173,9 +173,13 @@ function ToolLayout({ children, title }: { children: React.ReactNode, title: str
   }, [title]);
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:px-8 min-h-[calc(100vh-64px)]">
-      <div className="mb-6 sm:mb-8 border-b border-slate-200 pb-4">
+    <div className="max-w-3xl mx-auto px-4 py-4 sm:py-8 sm:px-6 lg:px-8 min-h-[calc(100vh-56px)]">
+      <div className="mb-4 sm:mb-6 border-b border-slate-200 pb-3 flex flex-col sm:flex-row justify-between items-center gap-4">
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight text-center sm:text-left">{title}</h1>
+        <Link to="/" className="text-sm font-semibold text-slate-600 hover:text-teal-700 transition-colors flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-teal-50 bg-white border border-slate-200 shadow-sm sm:hidden">
+          <ChevronLeft size={16} />
+          Back to Home
+        </Link>
       </div>
       <div className="bg-white rounded-[2rem] shadow-sm border border-slate-200 overflow-hidden relative">
         {/* We strip brutalism from the child components globally via css, but some tools might still have specific tailwind classes. We will rely on our global CSS changes mostly. */}
